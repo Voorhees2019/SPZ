@@ -116,6 +116,7 @@ class FileSystem:
                     print(f'[ERROR] Can not read. The offset is too large')
                 else:
                     print(' '.join(self.memory[descriptor.memory_location[0] + offset].block_value[:size]))
+                    # print(' '.join(self.memory[descriptor.memory_location[offset]].block_value[:size]))
                 return
 
         if fd not in fds:
@@ -137,6 +138,7 @@ class FileSystem:
                         print(f'Before writing: '
                               f'{self.memory[descriptor.memory_location[0] + offset].block_value}')
                         self.memory[descriptor.memory_location[0] + offset].block_value[:size] = ['W'] * size
+                        # self.memory[descriptor.memory_location[offset]].block_value[:size] = ['W'] * size
                         print(f'After writing: '
                               f'{self.memory[descriptor.memory_location[0] + offset].block_value}')
                 return
